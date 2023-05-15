@@ -1,7 +1,9 @@
 package pl.coderslab.budgetmaster.users;
 
 import lombok.*;
+import pl.coderslab.budgetmaster.expenses.Expense;
 import pl.coderslab.budgetmaster.income.Income;
+import pl.coderslab.budgetmaster.savings.Savings;
 
 import javax.persistence.*;
 import java.util.ArrayList;
@@ -24,14 +26,17 @@ public class User {
     private Long id;
 
     @Column(nullable = false, unique = true)
-    private String email;
+    private String userFirstName;
 
-    @Column(nullable = false)
-    private String firstName;
-    private String lastName;
 
-    @OneToMany(mappedBy = "users")
-    private List<Income> income = new ArrayList<>();
+    @OneToMany(mappedBy = "user", cascade = CascadeType.ALL)
+    private List<Income> incomesList = new ArrayList<>();
+
+    @OneToMany(mappedBy = "user", cascade = CascadeType.ALL)
+    private List<Expense> expenseArrayList = new ArrayList<>();
+
+    @OneToMany(mappedBy = "user", cascade = CascadeType.ALL)
+    private List<Savings> savingsList = new ArrayList<>();
 
 
 }
