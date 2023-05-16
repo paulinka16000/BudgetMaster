@@ -30,7 +30,7 @@ public class Income {
 
 
 
-    @ManyToOne(fetch = FetchType.EAGER)
+    @ManyToOne
     private User user;
 
 

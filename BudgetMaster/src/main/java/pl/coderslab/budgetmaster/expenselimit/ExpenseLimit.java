@@ -1,4 +1,4 @@
-package pl.coderslab.budgetmaster.expenses;
+package pl.coderslab.budgetmaster.expenselimit;
 
 import lombok.*;
 import pl.coderslab.budgetmaster.expenseCategory.ExpensesCategory;
@@ -9,32 +9,32 @@ import java.math.BigDecimal;
 import java.time.LocalDate;
 
 @Entity
-@Table(name = "expenses")
+@Table(name = "expenses_limit")
 @Getter
 @Setter
 @ToString
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
-public class Expense {
+
+
+public class ExpenseLimit {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(unique = true, name = "expense_id")
+    @Column(unique = true, name = "expense_limit_id")
     private Long id;
 
     @Column(nullable = false)
-    private String nameExpense;
+    private BigDecimal amount;
 
     @Column(nullable = false)
-    private BigDecimal amountOfExpense;
+    private LocalDate startDate;
 
     @Column(nullable = false)
-    private LocalDate expenseDate;
+    private LocalDate endDate;
 
-
-    @ManyToOne
+    @OneToOne
     private User user;
 
-    @ManyToOne
-    private ExpensesCategory expenseCategory;
+
 }

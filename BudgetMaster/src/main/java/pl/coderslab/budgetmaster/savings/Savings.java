@@ -24,7 +24,7 @@ public class Savings {
     @Column (nullable = false)
     private BigDecimal savingsAmount;
 
-    @ManyToOne(fetch = FetchType.EAGER)
+    @ManyToOne
     private User user;
 
 }
