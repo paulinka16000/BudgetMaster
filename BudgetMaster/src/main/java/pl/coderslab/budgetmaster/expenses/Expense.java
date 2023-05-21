@@ -32,9 +32,9 @@ public class Expense {
     private LocalDate expenseDate;
 
 
-    @ManyToOne
+    @ManyToOne (optional = false)
     private User user;
 
-    @ManyToOne
+    @ManyToOne (optional = false)
     private ExpensesCategory expenseCategory;
 }

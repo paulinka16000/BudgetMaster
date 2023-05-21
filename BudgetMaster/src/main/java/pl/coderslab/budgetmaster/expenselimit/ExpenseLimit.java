@@ -33,7 +33,7 @@ public class ExpenseLimit {
     @Column(nullable = false)
     private LocalDate endDate;
 
-    @OneToOne
+    @OneToOne (optional = false)
     private User user;
 
 

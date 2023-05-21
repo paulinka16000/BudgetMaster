@@ -22,8 +22,10 @@ public class ExpensesCategory {
     @Column(unique = true, name = "expenses_categories_id")
     private Long id;
 
-    @Column(nullable = false)
+
     private String name;
+    @Enumerated (EnumType.STRING)
+    private NameExpensesCategories nameExpensesCategories;
 
     @OneToMany(mappedBy = "expenseCategory", cascade = CascadeType.ALL)
     private List<Expense> expenseList= new ArrayList<>();

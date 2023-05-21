@@ -30,7 +30,7 @@ public class Income {
 
 
 
-    @ManyToOne
+    @ManyToOne (optional = false)
     private User user;
 
 

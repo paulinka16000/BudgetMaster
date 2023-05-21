@@ -24,7 +24,7 @@ public class Savings {
     @Column (nullable = false)
     private BigDecimal savingsAmount;
 
-    @ManyToOne
+    @ManyToOne (optional = false)
     private User user;
 
 }

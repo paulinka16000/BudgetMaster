@@ -1,0 +1,40 @@
+### Get all Expenses
+
+GET http://localhost:8080/expense/getAllExpenses
+
+### Create Expense
+
+POST http://localhost:8080/expense/createExpense
+Content-Type: application/json
+
+{
+  "amountOfExpense": "123.35",
+  "expenseDate": "2023-05-20",
+  "nameExpense": "dom",
+  "categoriesId": "1",
+  "userId":"1"
+
+
+}
+
+### Get ExpensebyUserId
+
+GET http://localhost:8080/expense/getExpenseByUserId/1
+
+### Put update Expense
+
+PUT http://localhost:8080/expense/updateExpense/10
+Content-Type: application/json
+
+{
+  "amountOfExpense": "123.35",
+  "expenseDate": "2023-05-20",
+  "nameExpense": "dom",
+  "categoriesId": "1",
+  "userId":"1"
+
+}
+
+
+### Delete Expense
+ DELETE http://localhost:8080/expense/deleteExpense/10
