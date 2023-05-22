@@ -12,16 +12,16 @@ POST http://localhost:8080/users/add
 Content-Type: application/json
 
 {
-  "userFirstName": "Rafał"
+  "userFirstName": "a"
 }
 
 ### Update User
 
-PUT http://localhost:8080/users/14
+PUT http://localhost:8080/users/10
 Content-Type: application/json
 
 {
-  "userFirstName": "Wojtek"
+  "userFirstName": " "
 }
 
 ### Delete User

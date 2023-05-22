@@ -6,6 +6,8 @@ import pl.coderslab.budgetmaster.income.Income;
 import pl.coderslab.budgetmaster.savings.Savings;
 
 import javax.persistence.*;
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.Size;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -25,7 +27,9 @@ public class User {
     @Column(unique = true, name = "user_id")
     private Long id;
 
+    @NotBlank (message = "User nie może być pusty")
     @Column(nullable = false, unique = true)
+    @Size(min = 2, max = 20, message = "Imię użytkownika musi mieć od 2 do 20 znaków")
     private String userFirstName;
 
 

@@ -8,9 +8,9 @@ POST http://localhost:8080/expense/createExpense
 Content-Type: application/json
 
 {
-  "amountOfExpense": "6666.55",
-  "expenseDate": "2023-05-22",
-  "nameExpense": "kredyt hipoteczny",
+  "amountOfExpense": "123.45",
+  "expenseDate": "2022-05-09",
+  "nameExpense": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
   "categoriesId": "5",
   "userId":"8"
 }

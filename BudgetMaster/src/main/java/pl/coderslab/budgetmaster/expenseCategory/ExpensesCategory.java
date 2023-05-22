@@ -4,6 +4,7 @@ import lombok.*;
 import pl.coderslab.budgetmaster.expenses.Expense;
 
 import javax.persistence.*;
+import javax.validation.constraints.NotBlank;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -22,6 +23,7 @@ public class ExpensesCategory {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(unique = true, name = "expenses_categories_id")
     private Long id;
+    @NotBlank (message = "Kategoria wydatku nie może być pusta")
     @Column(unique = true, nullable = false)
     private String name;
 
