@@ -8,9 +8,9 @@ POST http://localhost:8080/expense/createExpense
 Content-Type: application/json
 
 {
-  "amountOfExpense": "123.35",
-  "expenseDate": "2023-05-20",
-  "nameExpense": "dom",
+  "amountOfExpense": "4567.35",
+  "expenseDate": "2023-05-21",
+  "nameExpense": "credits",
   "categoriesId": "1",
   "userId":"1"
 
@@ -19,7 +19,7 @@ Content-Type: application/json
 
 ### Get ExpensebyUserId
 
-GET http://localhost:8080/expense/getExpenseByUserId/1
+GET http://localhost:8080/expense/getExpenseByUserId/8
 
 ### Put update Expense
 

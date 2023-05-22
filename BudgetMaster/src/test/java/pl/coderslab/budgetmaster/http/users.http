@@ -12,7 +12,7 @@ POST http://localhost:8080/users/add
 Content-Type: application/json
 
 {
-  "userFirstName": "Jarek"
+  "userFirstName": "Józek"
 }
 
 ### Update User
@@ -21,9 +21,9 @@ PUT http://localhost:8080/users/5
 Content-Type: application/json
 
 {
-  "userFirstName": "Jarek"
+  "userFirstName": "Wojtek"
 }
 
 ### Delete User
 
-DELETE http://localhost:8080/users/3
+DELETE http://localhost:8080/users/6
