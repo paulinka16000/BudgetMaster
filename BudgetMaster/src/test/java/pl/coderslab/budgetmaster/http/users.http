@@ -4,7 +4,7 @@ GET http://localhost:8080/users/all
 
 ### Get user
 
-GET http://localhost:8080/users/6
+GET http://localhost:8080/users/8
 
 ### Create Users
 
@@ -12,12 +12,12 @@ POST http://localhost:8080/users/add
 Content-Type: application/json
 
 {
-  "userFirstName": "Józek"
+  "userFirstName": "Rafał"
 }
 
 ### Update User
 
-PUT http://localhost:8080/users/5
+PUT http://localhost:8080/users/14
 Content-Type: application/json
 
 {
@@ -26,4 +26,4 @@ Content-Type: application/json
 
 ### Delete User
 
-DELETE http://localhost:8080/users/6
+DELETE http://localhost:8080/users/14

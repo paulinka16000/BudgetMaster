@@ -1,6 +1,6 @@
 ### Get all Expenses
 
-GET http://localhost:8080/expense/getAllExpenses
+GET http://localhost:8080/expense
 
 ### Create Expense
 
@@ -8,33 +8,30 @@ POST http://localhost:8080/expense/createExpense
 Content-Type: application/json
 
 {
-  "amountOfExpense": "4567.35",
-  "expenseDate": "2023-05-21",
-  "nameExpense": "credits",
-  "categoriesId": "1",
-  "userId":"1"
-
-
+  "amountOfExpense": "6666.55",
+  "expenseDate": "2023-05-22",
+  "nameExpense": "kredyt hipoteczny",
+  "categoriesId": "5",
+  "userId":"8"
 }
 
-### Get ExpensebyUserId
+### Get ExpensebyId
 
-GET http://localhost:8080/expense/getExpenseByUserId/8
+GET http://localhost:8080/expense/user/8
 
 ### Put update Expense
 
-PUT http://localhost:8080/expense/updateExpense/10
+PUT http://localhost:8080/expense/28
 Content-Type: application/json
 
 {
-  "amountOfExpense": "123.35",
-  "expenseDate": "2023-05-20",
-  "nameExpense": "dom",
-  "categoriesId": "1",
-  "userId":"1"
-
+  "amountOfExpense": "1.55",
+  "expenseDate": "2023-05-21",
+  "nameExpense": "karta kredytowa",
+  "categoriesId": "5",
+  "userId":"8"
 }
 
 
 ### Delete Expense
- DELETE http://localhost:8080/expense/deleteExpense/10
+ DELETE http://localhost:8080/expense/39

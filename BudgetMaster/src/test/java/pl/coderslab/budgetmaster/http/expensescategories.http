@@ -1,0 +1,31 @@
+### POST createExpensesCategory
+
+POST http://localhost:8080/expenses-categories
+Content-Type: application/json
+
+{
+  "name": "credits"
+
+}
+
+### GET getExpensesCategoryById
+
+GET http://localhost:8080/expenses-categories/7
+
+### GET getAllExpensesCategories
+
+GET http://localhost:8080/expenses-categories
+
+### PUT updateCategory
+
+PUT http://localhost:8080/expenses-categories/7
+Content-Type: application/json
+
+{
+  "name": "home"
+
+}
+
+### DELETE deleteExpensesCategoryById
+
+DELETE http://localhost:8080/expenses-categories/7

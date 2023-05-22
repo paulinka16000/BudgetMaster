@@ -20,12 +20,5 @@ public class ExpenseDTO {
     private Long categoriesId;
     private Long userId;
 
-    public void setUserId (Long userId){
-        this.userId=userId;
-    }
-    public void setCategoriesId (Long categoriesId){
-        this.categoriesId=categoriesId;
-    }
-
 
 }

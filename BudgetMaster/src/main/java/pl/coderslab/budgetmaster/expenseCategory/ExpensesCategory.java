@@ -8,7 +8,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 @Entity
-@Table(name = "expenses_categories")
+@Table(name = "expenses_categories", uniqueConstraints = {@UniqueConstraint(columnNames = "name")})
+
 @Getter
 @Setter
 @ToString
@@ -21,11 +22,9 @@ public class ExpensesCategory {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(unique = true, name = "expenses_categories_id")
     private Long id;
-
-
+    @Column(unique = true, nullable = false)
     private String name;
-    @Enumerated (EnumType.STRING)
-    private NameExpensesCategories nameExpensesCategories;
+
 
     @OneToMany(mappedBy = "expenseCategory", cascade = CascadeType.ALL)
     private List<Expense> expenseList= new ArrayList<>();

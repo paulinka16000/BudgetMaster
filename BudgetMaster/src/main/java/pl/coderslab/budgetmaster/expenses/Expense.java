@@ -32,9 +32,9 @@ public class Expense {
     private LocalDate expenseDate;
 
 
-    @ManyToOne (optional = false)
+    @ManyToOne (optional = false, fetch = FetchType.EAGER)
     private User user;
 
-    @ManyToOne (optional = false)
+    @ManyToOne (optional = false, fetch = FetchType.EAGER)
     private ExpensesCategory expenseCategory;
 }

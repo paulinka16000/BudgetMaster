@@ -16,7 +16,8 @@ import java.util.List;
 public class ExpenseController {
     private final ExpenseService expenseService;
 
-    @GetMapping("/getAllExpenses")
+
+    @GetMapping
     public ResponseEntity<List<ExpenseDTO>> getAllExpenses() {
         List<ExpenseDTO> expenses = expenseService.getAllExpenses();
         if (expenses.isEmpty()) {
@@ -26,24 +27,19 @@ public class ExpenseController {
         return ResponseEntity.ok(expenses);
         }
     }
-    @GetMapping("/getExpenseByUserId/{user_id}")
-    public ResponseEntity<ExpenseDTO> getExpenseByUserId(@PathVariable Long user_id) {
-        ExpenseDTO expense = expenseService.getExpenseByUserId(user_id);
-        if (expense != null) {
-            return ResponseEntity.ok(expense);
-        } else {
-            return ResponseEntity.notFound().build();
-        }
+    @GetMapping("/user/{userId}")
+    public List<ExpenseDTO> getExpensesById(@PathVariable Long userId) {
+        return expenseService.getExpensesByUserId(userId);
     }
 
     @PostMapping("/createExpense")
-    public ResponseEntity<ExpenseDTO> createExpense(@RequestBody ExpenseDTO expenseDTO) {
-        ExpenseDTO createdExpense = expenseService.createExpense(expenseDTO);
-        return ResponseEntity.status(HttpStatus.CREATED).body(createdExpense);
+    public ExpenseDTO createExpense(@RequestBody ExpenseDTO expenseDTO) {
+        return expenseService.createExpense(expenseDTO);
     }
 
-    @PutMapping("/updateExpense/{id}")
+    @PutMapping("/{id}")
     public ResponseEntity<ExpenseDTO> updateExpense(@PathVariable Long id, @RequestBody ExpenseDTO expenseDTO) {
+        expenseDTO.setId(id);
         ExpenseDTO updatedExpense = expenseService.updateExpense(id, expenseDTO);
         if (updatedExpense != null) {
             return ResponseEntity.ok(updatedExpense);
@@ -52,13 +48,15 @@ public class ExpenseController {
         }
     }
 
-    @DeleteMapping("/deleteExpense/{id}")
-    public ResponseEntity<Void> deleteExpense(@PathVariable Long id) {
-        boolean deleted = expenseService.deleteExpense(id);
-        if (deleted) {
-            return ResponseEntity.noContent().build();
-        } else {
+    @DeleteMapping("/{id}")
+    public ResponseEntity<String> deleteExpense(@PathVariable Long id) {
+        try {
+            expenseService.deleteExpense(id);
+            return ResponseEntity.ok("Expense deleted successfully");
+        } catch (NotFoundException e) {
             return ResponseEntity.notFound().build();
+        } catch (Exception e) {
+            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body("An error occurred");
         }
     }
 }
