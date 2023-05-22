@@ -22,20 +22,20 @@ public class ExpensesCategoryService {
 
     public ExpensesCategoryDTO createExpensesCategory(ExpensesCategoryDTO expensesCategoryDTO) {
 
-        ExpensesCategory expensesCategory = expensesCategoryMapper.mapToEntity(expensesCategoryDTO);
+        ExpensesCategory expensesCategory = expensesCategoryMapper.toExpenseCategory(expensesCategoryDTO);
         ExpensesCategory savedExpensesCategory = expensesCategoryRepository.save(expensesCategory);
-        return expensesCategoryMapper.mapToDTO(savedExpensesCategory);
+        return expensesCategoryMapper.toExpenseCategoryDTO(savedExpensesCategory);
     }
 
     public ExpensesCategoryDTO getExpensesCategoryById(Long id) {
         Optional<ExpensesCategory> expensesCategoryOptional = expensesCategoryRepository.findById(id);
-        return expensesCategoryOptional.map(expensesCategoryMapper::mapToDTO).orElse(null);
+        return expensesCategoryOptional.map(expensesCategoryMapper::toExpenseCategoryDTO).orElse(null);
     }
 
     public List<ExpensesCategoryDTO> getAllExpensesCategories() {
         List<ExpensesCategory> expensesCategories = expensesCategoryRepository.findAll();
         return expensesCategories.stream()
-                .map(expensesCategoryMapper::mapToDTO)
+                .map(expensesCategoryMapper::toExpenseCategoryDTO)
                 .collect(Collectors.toList());
     }
 
@@ -46,7 +46,7 @@ public class ExpensesCategoryService {
             category.setName(categoryDTO.getName());
             category.setName(categoryDTO.getName());
             ExpensesCategory updatedCategory = expensesCategoryRepository.save(category);
-            return expensesCategoryMapper.mapToDTO(updatedCategory);
+            return expensesCategoryMapper.toExpenseCategoryDTO(updatedCategory);
         } else {
             return null;
         }

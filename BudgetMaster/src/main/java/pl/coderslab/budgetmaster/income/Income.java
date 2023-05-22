@@ -4,6 +4,8 @@ import lombok.*;
 import pl.coderslab.budgetmaster.users.User;
 
 import javax.persistence.*;
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotNull;
 import java.math.BigDecimal;
 import java.time.LocalDate;
 
@@ -21,16 +23,19 @@ public class Income {
     @Column(unique = true, name = "income_id")
     private Long id;
 
-    @Column(nullable = false)
+    @NotBlank(message = "Przychód nie może być pusty")
+    @Column
     private String sourceOfIncome;
-    @Column(nullable = false)
+    @NotNull (message = "Kwota przychodu nie może być pusta")
+    @Column
     private BigDecimal amountOfIncome;
+
     @Column(nullable = false)
     private LocalDate receiptDate;
 
 
 
-    @ManyToOne (optional = false)
+    @ManyToOne (optional = false, fetch = FetchType.EAGER)
     private User user;
 
 

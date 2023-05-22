@@ -10,18 +10,18 @@ Content-Type: application/json
 {
   "amountOfExpense": "123.45",
   "expenseDate": "2022-05-09",
-  "nameExpense": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+  "nameExpense": "cos",
   "categoriesId": "5",
   "userId":"8"
 }
 
-### Get ExpensebyId
+### Get ExpensebyUserId
 
 GET http://localhost:8080/expense/user/8
 
 ### Put update Expense
 
-PUT http://localhost:8080/expense/28
+PUT http://localhost:8080/expense/30
 Content-Type: application/json
 
 {
@@ -29,9 +29,9 @@ Content-Type: application/json
   "expenseDate": "2023-05-21",
   "nameExpense": "karta kredytowa",
   "categoriesId": "5",
-  "userId":"8"
+  "userId":"10"
 }
 
 
 ### Delete Expense
- DELETE http://localhost:8080/expense/39
+ DELETE http://localhost:8080/expense/30
