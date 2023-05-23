@@ -4,13 +4,13 @@ POST http://localhost:8080/expenses-categories
 Content-Type: application/json
 
 {
-  "name": ""
+  "name": "Dom"
 
 }
 
 ### GET getExpensesCategoryById
 
-GET http://localhost:8080/expenses-categories/7
+GET http://localhost:8080/expenses-categories/1
 
 ### GET getAllExpensesCategories
 
@@ -18,14 +18,14 @@ GET http://localhost:8080/expenses-categories
 
 ### PUT updateCategory
 
-PUT http://localhost:8080/expenses-categories/7
+PUT http://localhost:8080/expenses-categories/1
 Content-Type: application/json
 
 {
-  "name": "home"
+  "name": "cos"
 
 }
 
 ### DELETE deleteExpensesCategoryById
 
-DELETE http://localhost:8080/expenses-categories/7
+DELETE http://localhost:8080/expenses-categories/9

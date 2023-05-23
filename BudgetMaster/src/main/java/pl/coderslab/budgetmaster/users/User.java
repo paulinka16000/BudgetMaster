@@ -3,7 +3,7 @@ package pl.coderslab.budgetmaster.users;
 import lombok.*;
 import pl.coderslab.budgetmaster.expenses.Expense;
 import pl.coderslab.budgetmaster.income.Income;
-import pl.coderslab.budgetmaster.savings.Savings;
+
 
 import javax.persistence.*;
 import javax.validation.constraints.NotBlank;
@@ -39,8 +39,6 @@ public class User {
     @OneToMany(mappedBy = "user", cascade = CascadeType.ALL)
     private List<Expense> expenseArrayList = new ArrayList<>();
 
-    @OneToMany(mappedBy = "user", cascade = CascadeType.ALL)
-    private List<Savings> savingsList = new ArrayList<>();
 
 
 }

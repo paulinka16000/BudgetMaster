@@ -8,16 +8,17 @@ POST http://localhost:8080/expense/createExpense
 Content-Type: application/json
 
 {
-  "amountOfExpense": "123.45",
+  "amountOfExpense": "400.45",
   "expenseDate": "2022-05-09",
-  "nameExpense": "cos",
-  "categoriesId": "5",
-  "userId":"8"
+  "nameExpense": "gdgdfg",
+  "categoriesId": "2",
+  "userId":"2"
+
 }
 
 ### Get ExpensebyUserId
 
-GET http://localhost:8080/expense/user/8
+GET http://localhost:8080/expense/user/2
 
 ### Put update Expense
 
@@ -34,4 +35,6 @@ Content-Type: application/json
 
 
 ### Delete Expense
- DELETE http://localhost:8080/expense/30
+ DELETE http://localhost:8080/expense/1
+
+

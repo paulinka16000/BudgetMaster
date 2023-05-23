@@ -4,10 +4,10 @@ POST http://localhost:8080/incomes/create
 Content-Type: application/json
 
 {
-  "sourceOfIncome": "sdgfsdg",
-  "amountOfIncome": "",
-  "receiptDate": "2023-05-22",
-  "userId": "8"
+  "sourceOfIncome": "wynagrodzenie",
+  "amountOfIncome": "4500",
+  "receiptDate": "2023-06-01",
+  "userId": "1"
 }
 
 
@@ -18,18 +18,18 @@ GET http://localhost:8080/incomes
 
 ### GET getIncomeByUserId
 
-GET http://localhost:8080/incomes/user/10
+GET http://localhost:8080/incomes/user/2
 
 ### PUT updateIncome
 
-PUT http://localhost:8080/incomes/13
+PUT http://localhost:8080/incomes/1
 Content-Type: application/json
 
 {
-  "sourceOfIncome": "hjvvh",
-  "amountOfIncome": "300.00",
+  "sourceOfIncome": "wypłata",
+  "amountOfIncome": "4500.00",
   "receiptDate": "2023-05-21",
-  "userId": "10"
+  "userId": "1"
 }
 
 ### DELETE deleteIncome

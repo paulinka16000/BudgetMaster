@@ -6,6 +6,7 @@ import pl.coderslab.budgetmaster.expenseCategory.ExpensesCategoryRepository;
 import pl.coderslab.budgetmaster.users.User;
 import pl.coderslab.budgetmaster.users.UserRepository;
 
+import java.math.BigDecimal;
 import java.util.List;
 import java.util.Optional;
 import java.util.stream.Collectors;
@@ -109,5 +110,6 @@ public class ExpenseService {
             throw new NotFoundException("Expense not found with id: " + id);
         }
         expenseRepository.deleteById(id);
+
     }
 }
