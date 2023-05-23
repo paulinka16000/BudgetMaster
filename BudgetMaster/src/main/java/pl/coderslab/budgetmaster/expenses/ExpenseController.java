@@ -7,6 +7,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.math.BigDecimal;
 import java.util.List;
 
 @RestController
@@ -58,5 +59,10 @@ public class ExpenseController {
         } catch (Exception e) {
             return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body("An error occurred");
         }
+    }
+    @GetMapping("/total/{userId}")
+    public ResponseEntity<BigDecimal> getTotalExpensesByUserId(@PathVariable Long userId) {
+        BigDecimal totalExpenses = expenseService.calculateTotalExpensesByUserId(userId);
+        return ResponseEntity.ok(totalExpenses);
     }
 }

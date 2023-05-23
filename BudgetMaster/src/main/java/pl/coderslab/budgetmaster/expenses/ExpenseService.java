@@ -112,4 +112,8 @@ public class ExpenseService {
         expenseRepository.deleteById(id);
 
     }
-}
+
+    public BigDecimal calculateTotalExpensesByUserId(Long userId) {
+        return expenseRepository.calculateTotalExpensesByUserId(userId);
+        }
+    }

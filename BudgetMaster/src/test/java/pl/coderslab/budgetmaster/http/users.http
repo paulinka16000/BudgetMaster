@@ -12,7 +12,7 @@ POST http://localhost:8080/users/add
 Content-Type: application/json
 
 {
-  "userFirstName": "Paulina"
+  "userFirstName": "Rafał"
 }
 
 ### Update User
