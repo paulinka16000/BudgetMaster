@@ -4,7 +4,7 @@ POST http://localhost:8080/expenses-categories
 Content-Type: application/json
 
 {
-  "name": "kredyt"
+  "name": "credits"
 
 }
 
