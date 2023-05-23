@@ -6,7 +6,9 @@ import org.mapstruct.MappingTarget;
 @Mapper(componentModel = "spring")
 public interface ExpenseMapper {
     ExpenseDTO toExpenseDTO(Expense expense);
+
     Expense toExpense(ExpenseDTO expenseDTO);
+
     @Mapping(target = "user", ignore = true)
     void updateExpenseFromDTO(ExpenseDTO expenseDTO, @MappingTarget Expense expense);
 }

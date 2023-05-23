@@ -7,6 +7,7 @@ import pl.coderslab.budgetmaster.expenses.ExpenseDTO;
 import pl.coderslab.budgetmaster.users.User;
 import pl.coderslab.budgetmaster.users.UserRepository;
 
+import java.math.BigDecimal;
 import java.util.List;
 import java.util.stream.Collectors;
 import java.util.Optional;
@@ -95,6 +96,10 @@ public class IncomeService {
             throw new NotFoundException("Income not found with id: " + id);
         }
         incomeRepository.deleteById(id);
+    }
+
+    public BigDecimal calculateTotalIncomesByUserId(Long userId) {
+        return incomeRepository.calculateTotalIncomesByUserId(userId);
     }
     }
 

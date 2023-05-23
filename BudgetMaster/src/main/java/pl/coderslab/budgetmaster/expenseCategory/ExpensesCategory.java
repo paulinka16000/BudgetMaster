@@ -23,6 +23,8 @@ public class ExpensesCategory {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(unique = true, name = "expenses_categories_id")
     private Long id;
+
+
     @NotBlank (message = "Kategoria wydatku nie może być pusta")
     @Column(unique = true, nullable = false)
     private String name;

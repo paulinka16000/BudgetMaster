@@ -4,10 +4,10 @@ POST http://localhost:8080/incomes/create
 Content-Type: application/json
 
 {
-  "sourceOfIncome": "wynagrodzenie",
+  "sourceOfIncome": "cos",
   "amountOfIncome": "4500",
   "receiptDate": "2023-06-01",
-  "userId": "1"
+  "userId": "2"
 }
 
 
@@ -34,3 +34,7 @@ Content-Type: application/json
 
 ### DELETE deleteIncome
 DELETE http://localhost:8080/incomes/1
+
+### GET getTotalIncomesByUserId
+
+GET http://localhost:8080/incomes/total/3

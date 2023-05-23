@@ -9,6 +9,7 @@ import pl.coderslab.budgetmaster.expenses.ExpenseDTO;
 import pl.coderslab.budgetmaster.users.User;
 import pl.coderslab.budgetmaster.users.UserRepository;
 
+import java.math.BigDecimal;
 import java.util.List;
 
 @RestController
@@ -59,6 +60,11 @@ public class IncomeController {
     public ResponseEntity<Void> deleteIncome(@PathVariable Long id) {
         incomeService.deleteIncome(id);
         return ResponseEntity.noContent().build();
+    }
+    @GetMapping("/total/{userId}")
+    public ResponseEntity<BigDecimal> getTotalIncomesByUserId(@PathVariable Long userId) {
+        BigDecimal totalIncomes = incomeService.calculateTotalIncomesByUserId(userId);
+        return ResponseEntity.ok(totalIncomes);
     }
 
     }

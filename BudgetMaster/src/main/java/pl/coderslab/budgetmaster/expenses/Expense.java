@@ -42,6 +42,7 @@ public class Expense {
     @ManyToOne (optional = false, fetch = FetchType.EAGER)
     private User user;
 
+
     @ManyToOne (optional = false, fetch = FetchType.EAGER)
     private ExpensesCategory expenseCategory;
 }
