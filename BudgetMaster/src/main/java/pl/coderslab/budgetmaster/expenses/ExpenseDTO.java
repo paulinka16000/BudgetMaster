@@ -14,6 +14,7 @@ import java.time.LocalDate;
 @Builder
 
 public class ExpenseDTO {
+
     @Schema(description = "Expenses id", example = "1")
     private Long id;
     @Schema(description = "Expense name", example ="mortgage")
@@ -26,8 +27,6 @@ public class ExpenseDTO {
     private Long categoriesId;
     @Schema(description = "Expense user id", example ="2")
     private Long userId;
-
-
 
 
 }

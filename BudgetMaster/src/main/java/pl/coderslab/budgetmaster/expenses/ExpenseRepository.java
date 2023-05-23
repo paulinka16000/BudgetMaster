@@ -13,6 +13,6 @@ public interface ExpenseRepository extends JpaRepository<Expense, Long> {
     @Query("SELECT SUM(e.amountOfExpense) FROM Expense e WHERE e.user.id = :userId")
     BigDecimal calculateTotalExpensesByUserId(@Param("userId") Long userId);
 
-
-
+    @Query("SELECT SUM(e.amountOfExpense) FROM Expense e")
+    BigDecimal sumAllExpenses();
 }

@@ -52,4 +52,6 @@ public class ExpensesCategoryController {
         expensesCategoryService.deleteExpensesCategoryById(id);
         return ResponseEntity.noContent().build();
     }
+
+
 }

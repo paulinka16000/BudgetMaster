@@ -1,5 +1,8 @@
 package pl.coderslab.budgetmaster.expenses;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.core.env.Environment;
 import org.springframework.stereotype.Service;
 import pl.coderslab.budgetmaster.expenseCategory.ExpensesCategory;
 import pl.coderslab.budgetmaster.expenseCategory.ExpensesCategoryRepository;
@@ -16,6 +19,9 @@ public class ExpenseService {
     private final ExpenseRepository expenseRepository;
     private final ExpenseMapper expenseMapper;
     private final UserRepository userRepository;
+    @Value("${expense.limit}")
+    private BigDecimal expenseLimit;
+
 
     private final ExpensesCategoryRepository expensesCategoryRepository;
 
@@ -34,7 +40,6 @@ public class ExpenseService {
     }
 
 
-
     public List<ExpenseDTO> getExpensesByUserId(Long userId) {
         List<Expense> expenses = expenseRepository.findByUserId(userId);
         return expenses.stream()
@@ -43,17 +48,21 @@ public class ExpenseService {
     }
 
     public ExpenseDTO createExpense(ExpenseDTO expenseDTO) {
+        BigDecimal totalExpenses = calculateTotalExpensesForAllUsers();
+
+        if (totalExpenses.add(expenseDTO.getAmountOfExpense()).compareTo(expenseLimit) > 0) {
+            throw new RuntimeException("Exceeded expense limit");
+        }
+
         Expense expense = new Expense();
         expense.setAmountOfExpense(expenseDTO.getAmountOfExpense());
         expense.setExpenseDate(expenseDTO.getExpenseDate());
         expense.setNameExpense(expenseDTO.getNameExpense());
 
-
         Optional<ExpensesCategory> categoryOptional = expensesCategoryRepository.findById(expenseDTO.getCategoriesId());
         if (categoryOptional.isPresent()) {
             expense.setExpenseCategory(categoryOptional.get());
         } else {
-
             throw new RuntimeException("Invalid expense category ID");
         }
 
@@ -115,5 +124,15 @@ public class ExpenseService {
 
     public BigDecimal calculateTotalExpensesByUserId(Long userId) {
         return expenseRepository.calculateTotalExpensesByUserId(userId);
-        }
+    }
+
+    public BigDecimal calculateTotalExpensesForAllUsers() {
+        BigDecimal totalExpenses = expenseRepository.sumAllExpenses();
+        return totalExpenses != null ? totalExpenses : BigDecimal.ZERO;
+    }
+    public BigDecimal getExpenseLimit() {
+        return expenseLimit;
+    }
+
+
     }

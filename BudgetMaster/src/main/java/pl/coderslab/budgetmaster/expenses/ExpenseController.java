@@ -25,9 +25,10 @@ public class ExpenseController {
             return ResponseEntity.notFound().build();
         } else {
 
-        return ResponseEntity.ok(expenses);
+            return ResponseEntity.ok(expenses);
         }
     }
+
     @GetMapping("/user/{userId}")
     public List<ExpenseDTO> getExpensesById(@PathVariable Long userId) {
         return expenseService.getExpensesByUserId(userId);
@@ -60,9 +61,21 @@ public class ExpenseController {
             return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body("An error occurred");
         }
     }
+
     @GetMapping("/total/{userId}")
     public ResponseEntity<BigDecimal> getTotalExpensesByUserId(@PathVariable Long userId) {
         BigDecimal totalExpenses = expenseService.calculateTotalExpensesByUserId(userId);
         return ResponseEntity.ok(totalExpenses);
     }
-}
+
+    @GetMapping("/total")
+    public ResponseEntity<BigDecimal> getTotalExpensesForAllUsers() {
+        BigDecimal totalExpenses = expenseService.calculateTotalExpensesForAllUsers();
+        BigDecimal expenseLimit = expenseService.getExpenseLimit();
+
+            return ResponseEntity.ok(totalExpenses);
+
+        }
+
+    }
+

@@ -8,10 +8,10 @@ POST http://localhost:8080/expense/createExpense
 Content-Type: application/json
 
 {
-  "amountOfExpense": "400.00",
+  "amountOfExpense": "1.00",
   "expenseDate": "2022-05-09",
   "nameExpense": "sdgsdg",
-  "categoriesId": "1",
+  "categoriesId": "5",
   "userId":"1"
 
 }
@@ -30,16 +30,21 @@ Content-Type: application/json
   "expenseDate": "2023-05-21",
   "nameExpense": "karta kredytowa",
   "categoriesId": "1",
-  "userId":"1"
+  "userId":"5"
 }
 
 
 ### DELETE Expense
- DELETE http://localhost:8080/expense/1
+ DELETE http://localhost:8080/expense/2
 
 
 ### GET getTotalExpensesByUserId
 
 GET http://localhost:8080/expense/total/2
+
+
+### GET getTotalExpensesForAllUsers
+
+GET  http://localhost:8080/expense/total
 
 
