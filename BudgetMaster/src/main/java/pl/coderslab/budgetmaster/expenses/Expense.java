@@ -25,16 +25,16 @@ public class Expense {
     @Column(unique = true, name = "expense_id")
     private Long id;
 
-    @NotBlank (message = "Nazwa wydatku nie może być pusta")
+    @NotBlank (message = "Expense name cannot be empty")
     @Column(nullable = false)
-    @Size(min = 2, max = 30, message = "nazwa wydatku musi mieć od 2 do 30 znaków")
+    @Size(min = 2, max = 30, message = "Expense name must be between 2 and 30 characters")
     private String nameExpense;
 
-    @NotNull(message = "Kwota nie może być pusta")
+    @NotNull(message = "The amount cannot be empty")
     @Column
     private BigDecimal amountOfExpense;
 
-    @NotNull(message = "Data nie może być pusta")
+    @NotNull(message = "The date cannot be empty")
     @Column
     private LocalDate expenseDate;
 

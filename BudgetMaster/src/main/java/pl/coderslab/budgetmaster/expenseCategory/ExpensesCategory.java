@@ -25,7 +25,7 @@ public class ExpensesCategory {
     private Long id;
 
 
-    @NotBlank (message = "Kategoria wydatku nie może być pusta")
+    @NotBlank (message = "Expense category cannot be empty")
     @Column(unique = true, nullable = false)
     private String name;
 

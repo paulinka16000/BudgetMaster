@@ -23,10 +23,10 @@ public class Income {
     @Column(unique = true, name = "income_id")
     private Long id;
 
-    @NotBlank(message = "Przychód nie może być pusty")
+    @NotBlank(message = "Revenue cannot be empty")
     @Column
     private String sourceOfIncome;
-    @NotNull (message = "Kwota przychodu nie może być pusta")
+    @NotNull (message = "Revenue amount cannot be empty")
     @Column
     private BigDecimal amountOfIncome;
 

@@ -27,9 +27,9 @@ public class User {
     @Column(unique = true, name = "user_id")
     private Long id;
 
-    @NotBlank (message = "User nie może być pusty")
+    @NotBlank (message = "User cannot be empty")
     @Column(nullable = false, unique = true)
-    @Size(min = 2, max = 20, message = "Imię użytkownika musi mieć od 2 do 20 znaków")
+    @Size(min = 2, max = 20, message = "Username must be between 2 and 20 characters")
     private String userFirstName;
 
 
