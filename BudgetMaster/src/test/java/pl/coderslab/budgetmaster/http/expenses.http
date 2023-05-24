@@ -8,10 +8,10 @@ POST http://localhost:8080/expense/createExpense
 Content-Type: application/json
 
 {
-  "amountOfExpense": "1.00",
-  "expenseDate": "2022-05-09",
-  "nameExpense": "sdgsdg",
-  "categoriesId": "5",
+  "amountOfExpense": "200.00",
+  "expenseDate": "2022-05-23",
+  "nameExpense": "Shopping",
+  "categoriesId": "1",
   "userId":"1"
 
 }
@@ -22,7 +22,7 @@ GET http://localhost:8080/expense/user/2
 
 ### PUT update Expense
 
-PUT http://localhost:8080/expense/30
+PUT http://localhost:8080/expense/1
 Content-Type: application/json
 
 {
@@ -30,17 +30,17 @@ Content-Type: application/json
   "expenseDate": "2023-05-21",
   "nameExpense": "karta kredytowa",
   "categoriesId": "1",
-  "userId":"5"
+  "userId":"1"
 }
 
 
 ### DELETE Expense
- DELETE http://localhost:8080/expense/2
+ DELETE http://localhost:8080/expense/1
 
 
 ### GET getTotalExpensesByUserId
 
-GET http://localhost:8080/expense/total/2
+GET http://localhost:8080/expense/total/1
 
 
 ### GET getTotalExpensesForAllUsers
